@@ -43,6 +43,18 @@ public class Main {
             }
           }
 
+            else if(cmd.equals("삭제")){
+                System.out.println("삭제 할 명언 번호를 입력해주세요.");
+                int deleteId = scanner.nextInt();
+                scanner.nextLine();
+                boolean found = wiseSayings.removeIf(e -> e.id == deleteId);
+                if(found){
+                    System.out.println(deleteId + "번 명언이 삭제되었습니다.");
+                } else{
+                    System.out.println(deleteId + "번 명언이 존재하지않습니다.");
+                }
+            }
+
 
         }
 
@@ -62,7 +74,7 @@ public class Main {
 
        @Override
        public String toString() {
-           return id + "       " + author + "    " + content;
+           return id + " // " + author + " // " + content;
        }
 
    }
