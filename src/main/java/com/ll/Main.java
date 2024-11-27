@@ -55,6 +55,31 @@ public class Main {
                 }
             }
 
+            else if(cmd.equals("수정")){
+                boolean found = false;
+                System.out.println("수정 할 명언 번호를 입력해주세요.");
+                int modifyId = scanner.nextInt();
+                scanner.nextLine();
+
+                for(WiseSaying wiseSaying : wiseSayings){
+                if(wiseSaying.id == modifyId){
+                    System.out.println("기존 명언) " + wiseSaying.content);
+                    String newContent = scanner.nextLine().trim();
+                    System.out.println("기존 작가) " + wiseSaying.author);
+                    String newAuthor = scanner.nextLine().trim();
+                    wiseSaying.content = newContent;
+                    wiseSaying.author = newAuthor;
+                    found = true;
+                    }
+                }
+                if(found){
+                    System.out.println("수정이 완료되었습니다.");
+                } else{
+                    System.out.println(modifyId + "번 명언이 존재하지 않습니다.");
+                }
+
+            }
+
 
         }
 
