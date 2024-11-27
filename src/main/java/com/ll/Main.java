@@ -6,6 +6,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        WiseSaying.makeSampleData();
         System.out.println("== 명언 앱 ==");
         while (true) {
             System.out.print("명령) ");
@@ -29,11 +30,11 @@ public class Main {
 }
 
        class WiseSaying {
+           static List<WiseSaying> wiseSayings = new ArrayList<>();
            int id;
            String content;
            String author;
-           static int lastId = 1;
-           static List<WiseSaying> wiseSayings = new ArrayList<>();
+           static int lastId = 0;
 
            public WiseSaying(int id, String content, String author) {
                this.id = id;
@@ -46,16 +47,25 @@ public class Main {
                return id + " // " + author + " // " + content;
            }
 
+           public static void makeSampleData() {
+               add("나의 죽음을 적들에게 알리지 말라.", "이순신 장군");
+               add("삶이 있는 한 희망은 있다.", "키케로");
+           }
+
+
+           public static void add(String content, String author){
+               lastId++;
+               WiseSaying wiseSaying = new WiseSaying(lastId, content, author);
+               wiseSayings.add(wiseSaying);
+           }
 
            public static void actionAdd(Scanner scanner) {
                System.out.print("명언) ");
                String content = scanner.nextLine().trim();
                System.out.print("작가) ");
                String author = scanner.nextLine().trim();
-               WiseSaying wiseSaying = new WiseSaying(lastId, content, author);
-               wiseSayings.add(wiseSaying);
+               add(content, author);
                System.out.println(lastId + "번 명언이 생성되었습니다.");
-               lastId++;
            }
 
 
