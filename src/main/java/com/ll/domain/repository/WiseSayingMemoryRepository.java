@@ -5,14 +5,14 @@ import com.ll.domain.entity.WiseSaying;
 import java.util.List;
 import java.util.Optional;
 
-public abstract class WiseSayingMemoryRepository {
-    abstract void add(WiseSaying wiseSaying);
+public interface WiseSayingMemoryRepository {
+    void add(WiseSaying wiseSaying);
 
-    abstract List<WiseSaying> findAll();
+    List<WiseSaying> findAll();
 
-    abstract boolean removeById(int deleteId);
+    boolean removeById(int deleteId);
 
-    abstract Optional<WiseSaying> findById(int modifyId);
+    Optional<WiseSaying> findById(int modifyId);
 
-    abstract void modify(WiseSaying wiseSaying);
+    void modify(WiseSaying wiseSaying);
 }
