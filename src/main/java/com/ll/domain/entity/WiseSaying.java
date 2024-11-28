@@ -39,4 +39,5 @@ package com.ll.domain.entity;
     public String toString() {
             return id + " // " + author + " // " + content;
         }
-}
+
+    }

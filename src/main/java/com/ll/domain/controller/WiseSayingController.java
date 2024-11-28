@@ -1,16 +1,19 @@
 package com.ll.domain.controller;
 
 import com.ll.domain.entity.WiseSaying;
+import com.ll.domain.repository.WiseSayingRepository;
 import com.ll.domain.service.WiseSayingService;
 
 import java.util.*;
 
 public class WiseSayingController {
            private final WiseSayingService wiseSayingService;
+           private final WiseSayingRepository wiseSayingRepository;
            private final Scanner scanner;
 
         public WiseSayingController() {
            this.wiseSayingService = new WiseSayingService();
+           this.wiseSayingRepository = new WiseSayingRepository();
            this.scanner = new Scanner(System.in);
     }
 
@@ -25,7 +28,7 @@ public class WiseSayingController {
             System.out.print("작가) ");
             String author = scanner.nextLine().trim();
             wiseSayingService.add(content, author);
-            System.out.println(wiseSayingService.getLastId() + "번 명언이 생성되었습니다.");
+            System.out.println("명언이 생성되었습니다.");
         }
 
         public void actionList() {
