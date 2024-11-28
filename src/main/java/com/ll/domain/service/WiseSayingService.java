@@ -11,6 +11,7 @@ public class WiseSayingService {
 
     public WiseSayingService() {
         this.wiseSayingRepository = new WiseSayingRepository();
+      //  this.wiseSayingRepository = new WiseSayingFileRepository();
     }
 
     public void add(String content, String author){

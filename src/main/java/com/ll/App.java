@@ -30,6 +30,9 @@ public class App {
                 wiseSayingController.actionDelete();
             } else if (cmd.equals("수정")) {
                 wiseSayingController.actionModify();
+            } else{
+                System.out.println("잘못된 명령입니다.");
+                System.out.println("다시 적어주세요.");
             }
         }
     }
